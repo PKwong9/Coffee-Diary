@@ -1,1 +1,17 @@
-sdf
+//Packages not uploaded
+
+Packages include:
+
+Microsoft.Azure.MobileClient
+Microsoft.Bcl
+Microsoft.Bcl.Build
+Microsoft.Net.Http
+Microsoft.WindowsAzureSDK
+SQL
+Android plugins
+iOS plugins
+Xamarin.Forms.Maps
+Xaml.Plugin.Media
+
+
+//
