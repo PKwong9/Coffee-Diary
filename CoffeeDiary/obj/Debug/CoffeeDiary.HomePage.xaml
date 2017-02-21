@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+		xmlns:local="clr-namespace:CoffeeDiary;assembly=CoffeeDiary" 
+		BackgroundImage="coffeecup.jpg"
+		x:Class="CoffeeDiary.HomePage">
+<ContentPage.Padding>
+	<OnPlatform x:TypeArguments="Thickness"
+				iOS="0,20,0,0"
+				Android="0"
+				WinPhone="0"/>
+</ContentPage.Padding>
+
+<StackLayout Orientation="Vertical">
+<StackLayout Orientation="Horizontal" VerticalOptions="Start">
+	<Label Text="Coffee Diary"
+        FontSize="50"
+		HorizontalOptions="CenterAndExpand"
+		IsVisible="true"
+	    TextColor="#FFCF99"
+		FontAttributes="Bold">
+	<Label.FontFamily>
+        <OnPlatform x:TypeArguments="x:String">
+            <OnPlatform.iOS>MarkerFelt-Thin</OnPlatform.iOS>
+            <OnPlatform.Android>Droid Sans Mono</OnPlatform.Android>
+            <OnPlatform.WinPhone>Comic Sans MS</OnPlatform.WinPhone>
+        </OnPlatform>
+    </Label.FontFamily>
+	</Label>
+</StackLayout>
+
+<StackLayout VerticalOptions="Center">
+	<ActivityIndicator Grid.RowSpan="2"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       IsVisible="False"
+                       IsEnabled="True"
+                       x:Name="syncIndicator"/>
+	<ListView x:Name="todoList"
+				BackgroundColor="#F5DEB3"
+
+				ItemSelected="OnSelected"
+				IsPullToRefreshEnabled="true" Refreshing="OnRefresh"
+				Grid.Row="1"
+				HeightRequest="1000">
+		<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<ViewCell.ContextActions>
+							<MenuItem Clicked="OnDelete" Text="Delete" IsDestructive="true" CommandParameter="{Binding .}" />
+						</ViewCell.ContextActions>
+						<StackLayout Padding="15,0" Orientation="Horizontal">
+							<Label Text="{Binding Name}" FontSize="20" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+							<Label Text="{Binding CreatedAt,StringFormat='{0:MMMM dd, yyyy}'}" FontSize="15" FontAttributes="Italic" VerticalOptions="Center" HorizontalOptions="End"/>
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+		</ListView.ItemTemplate>
+	</ListView>
+</StackLayout>
+
+
+
+
+<StackLayout Orientation="Horizontal" VerticalOptions="End">
+	<Button x:Name="AddEntryBtn" 
+	   	HorizontalOptions="FillAndExpand"
+		Text="Add New Entry"
+		TextColor="Black"
+		FontSize="30"
+		BackgroundColor="#DEB887"
+		BorderColor="Black"
+		BorderWidth="1"
+		BorderRadius="0"
+		HeightRequest="80"
+		Clicked="AddEntry_onclick">
+	<Button.FontFamily>
+        <OnPlatform x:TypeArguments="x:String">
+            <OnPlatform.iOS>MarkerFelt-Thin</OnPlatform.iOS>
+            <OnPlatform.Android>Droid Sans Mono</OnPlatform.Android>
+            <OnPlatform.WinPhone>Comic Sans MS</OnPlatform.WinPhone>
+        </OnPlatform>
+    </Button.FontFamily>
+	</Button>
+</StackLayout>
+</StackLayout>
+</ContentPage>
+
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+		xmlns:local="clr-namespace:CoffeeDiary;assembly=CoffeeDiary" x:Class="CoffeeDiary.MapPage">
+	<StackLayout>
+		<StackLayout HorizontalOptions="StartAndExpand">
+		<local:CustomMap x:Name="customMap" MapType="Street"
+          WidthRequest="{x:Static local:App.ScreenWidth}"
+          HeightRequest="{x:Static local:App.ScreenHeight}" />
+		</StackLayout>
+
+		<StackLayout HorizontalOptions="End">
+		<Button x:Name="map_SaveBtn" Text="Save Location" FontSize="30" Clicked="SaveLocation"/>
+		</StackLayout>
+	</StackLayout>
+</ContentPage>

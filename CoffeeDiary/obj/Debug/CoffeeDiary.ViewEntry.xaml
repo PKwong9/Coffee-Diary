@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		 x:Class="CoffeeDiary.ViewEntry" BackgroundImage="beige.jpg">
+
+<ContentPage.Padding>
+	<OnPlatform x:TypeArguments="Thickness"
+				iOS="10,30,10,0"
+				Android="10,0"
+				WinPhone="10,0"/>
+</ContentPage.Padding>
+
+<StackLayout>
+	<ScrollView>
+	<StackLayout VerticalOptions="StartAndExpand" IsVisible="true">
+			<StackLayout Orientation="Horizontal" VerticalOptions="Start">
+  				<Label Text="Name:" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
+  				<Label x:Name="name_label" Text="{Binding Name}" FontSize="20" TextColor="Black"/>
+			</StackLayout>
+
+			<StackLayout Orientation="Horizontal">
+  				<Label Text="Coffee:" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
+  				<Label x:Name="coffee_label" Text="{Binding Coffee}" FontSize="20" TextColor="Black"/>
+			</StackLayout>
+
+			<StackLayout Orientation="Vertical">
+  				<Label Text="Review:" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
+  				<Label x:Name="review_label" Text="{Binding Review}" FontSize="20" TextColor="Black"/>
+			</StackLayout>
+
+			<StackLayout Orientation="Vertical">
+  				<Label Text="Location:" FontSize="20" TextColor="Black" FontAttributes="Bold"/>
+  				<Label x:Name="review_location" Text="{Binding Address}" FontSize="20" TextColor="Black"/>
+			</StackLayout>
+
+			<StackLayout>
+				<Image x:Name="image"/>		
+			</StackLayout>
+	</StackLayout>		
+	</ScrollView>
+
+	<StackLayout VerticalOptions="End">
+		<Button x:Name="BackHome_Btn" 
+	   		HorizontalOptions="FillAndExpand"
+			Text="Back to Diary"
+			FontSize="30"
+			Clicked="HomePage_button">
+		<Button.FontFamily>
+        	<OnPlatform x:TypeArguments="x:String">
+            	<OnPlatform.iOS>MarkerFelt-Thin</OnPlatform.iOS>
+            	<OnPlatform.Android>Droid Sans Mono</OnPlatform.Android>
+            	<OnPlatform.WinPhone>Comic Sans MS</OnPlatform.WinPhone>
+        	</OnPlatform>
+    	</Button.FontFamily>
+		</Button>
+	</StackLayout>
+</StackLayout>
+</ContentPage>
